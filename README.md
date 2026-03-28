@@ -1,6 +1,15 @@
 # ORAC-NT v5.5 | SSD Thermal Management SDK
 ### Deterministic Vitality Control for Next-Gen NAND Reliability
+## 📊 Performance Analysis: ORAC-NT vs. Industry Standard
+The following benchmark compares the **W(t) Adaptive Logic** against the traditional **Fixed Threshold (70°C)** used in high-end NVMe drives.
 
+![SSD Thermal Benchmark](benchmarks/ssd_thermal_benchmark.png)
+
+### 🔑 Key Advantages Observed:
+* **Throttle Events:** 81% reduction (42 vs. 218 events).
+* **Throughput Stability:** Eliminates the "sawtooth" effect, providing a +9.9 pp sustained performance advantage.
+* **NAND Wear:** 15.0% immediate reduction in wear index.
+* **Lyapunov Stability:** Confirmed (No oscillations or thermal runaway).
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![NAND Endurance](https://img.shields.io/badge/Endurance-31.6%25%20Gain-green.svg)]()
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19019599.svg)](https://doi.org/10.5281/zenodo.19019599)
