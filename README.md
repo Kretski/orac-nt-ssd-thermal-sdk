@@ -3,15 +3,23 @@
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![NAND Endurance](https://img.shields.io/badge/Endurance-31.6%25%20Gain-green.svg)]()
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18898599.svg)](https://doi.org/10.5281/zenodo.18898599)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19019599.svg)](https://doi.org/10.5281/zenodo.19019599)
 
 ## 📌 Overview
-ORAC-NT (Orbital Resilience Adaptive Controller) is a physics-based control engine designed to replace binary thermal throttling in high-performance NVMe controllers. By implementing the **W(t) Vitality Index**, the SDK prevents "cliff-drop" performance degradation and significantly extends NAND P/E cycle lifetime.
+ORAC-NT (Orbital Resilience Adaptive Controller) is a physics-based control engine designed to replace binary thermal throttling in high-performance NVMe controllers. By implementing the **W(t) Vitality Index**, the SDK prevents performance "cliff-drops" and significantly extends NAND P/E cycle lifetime through deterministic FDIR (Fault Detection, Isolation, and Recovery) logic.
+
+---
+
+## 🔬 Scientific Foundation
+This SDK is based on the research published in Zenodo:
+**"ORAC-NT v5.x: Optimal and Stable FDIR Architecture for Autonomous Spacecraft and Critical Systems"**
+- **DOI:** [10.5281/zenodo.19019599](https://doi.org/10.5281/zenodo.19019599)
+- **Framework:** Control Lyapunov Function (CLF) formulation for system stability ($V < 0$).
 
 ---
 
 ## 🚀 Benchmark Results (NAND Stress Test)
-Using an Arrhenius-based thermal acceleration model ($E_a = 0.65 eV$), ORAC-NT achieved the following results compared to fixed-threshold throttling:
+Validated using an Arrhenius-based thermal acceleration model ($E_a = 0.65 eV$):
 
 | Metric | Fixed Threshold | **ORAC-NT (W(t))** | **Improvement** |
 | :--- | :--- | :--- | :--- |
@@ -23,7 +31,7 @@ Using an Arrhenius-based thermal acceleration model ($E_a = 0.65 eV$), ORAC-NT a
 ---
 
 ## 🧠 The Vitality Formula
-The core logic replaces probabilistic AI with deterministic physics:
+The core logic replaces probabilistic AI with deterministic physics for sub-microsecond execution:
 $$W(t) = Q(T) \cdot D(t) - T_{norm}(t)$$
 
 - **Q(T)**: Real-time NAND read quality (Health metric).
@@ -32,9 +40,19 @@ $$W(t) = Q(T) \cdot D(t) - T_{norm}(t)$$
 
 ---
 
-## 🛠 Installation & Evaluation
-This repository contains the **Pure Python Evaluation SDK**. It is designed for rapid integration testing and mathematical validation.
+## 📂 Repository Structure
+- `sdk/`: Core Python API for mathematical validation.
+- `examples/`: Demo simulation showing the thermal damping effect.
+- `benchmarks/`: Raw data and visualization plots (PNG).
+- `docs/`: Technical White Paper and Academic Reference.
 
-### 1. Requirements
+---
+
+## 🛠 Quick Start
 ```bash
-pip install numpy pandas matplotlib
+# Clone the evaluation SDK
+git clone [https://github.com/Kretski/orac-nt-ssd-thermal-sdk.git](https://github.com/Kretski/orac-nt-ssd-thermal-sdk.git)
+cd orac-nt-ssd-thermal-sdk
+
+# Run the thermal simulation demo
+python examples/demo_simulation.py
