@@ -1,0 +1,38 @@
+==============================================================
+  Kretski W(t) SSD Thermal Controller — Benchmark Report
+==============================================================
+  Simulation steps      : 2000
+  Time step             : 0.1 s
+  Workload              : 90%
+  Ambient temperature   : 38.0°C
+  W(t) onset            : 58.0°C
+  Fixed throttle at     : 70.0°C
+  Max NAND temperature  : 85.0°C
+  NAND BER0 (25°C)      : 1.0e-09
+  Activation energy Ea  : 0.65 eV
+
+  METRIC               Fixed         W(t)          Delta
+  -------------------------------------------------------
+  Avg throughput        4.75 GB/s     3.86 GB/s    -18.6%
+  Avg temperature       68.5°C       62.9°C      -5.6°C
+  Peak temperature      70.1°C       67.4°C      -2.7°C
+  Avg NAND quality Q   0.6510       0.6906       +6.1%
+  Throttle events        411            1817           -342% fewer
+  Effective P/E cost   23920 cycles   16353 cycles   +31.6% lifetime
+
+  KEY RESULT:
+    Fixed threshold hits hard limit 411x with cliff-drop of 22%.
+    W(t) uses 1817 proportional micro-adjustments,
+    keeping avg temp 5.6°C lower.
+    NAND lifetime extended 31.6% via reduced thermal acceleration.
+
+  W(t) = Q(T) * D(t) - T_norm(t)
+    Q      = NAND read quality [0..1]  (Arrhenius BER)
+    D      = performance fraction [0..1]
+    T_norm = (T - T_onset) / (T_throttle - T_onset)
+    onset  = 58.0°C  |  hard limit = 70.0°C
+    h      = inertia memory (exponential smoothing)
+    deadband = 0.04  (avoids noise-driven chatter)
+
+  DOI: 10.5281/zenodo.18898599
+==============================================================
