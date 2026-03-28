@@ -20,7 +20,15 @@ Modern AI controllers for space, drones and industrial systems rely on neural ne
 - Consume **milliwatts** continuously — unacceptable for CubeSats and battery-powered devices
 - Are **probabilistic** — no formal stability guarantees
 - Show high disruption rates in critical regimes (plasma, vibration, Byzantine sensor faults)
+-## The Hidden Cost of Neural AI
 
+Many companies have already spent hundreds of thousands of euros (and some millions) developing neural controllers that:
+- Never make it into production due to power budget
+- Require constant retuning when conditions change
+- Don't provide any formal guarantees of stability
+
+ORAC-NT is not "just another optimizer".
+It is a **physically deterministic** replacement that makes much of the existing AI efforts economically unviable. 
 ## The Solution: ORAC-NT
 
 ORAC-NT replaces the entire neural stack with a **single deterministic physics equation**:
